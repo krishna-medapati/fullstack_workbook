@@ -6,3 +6,8 @@ Topics Covered:
 3. Remote repositories
 4. Branching and merging
 5. Conflict resolution
+
+Bug Fix Applied:
+- Fixed formatting issues
+- Updated documentation
+- Corrected typos
