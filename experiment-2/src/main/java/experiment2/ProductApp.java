@@ -48,15 +48,15 @@ public class ProductApp {
                         break;
                     case 7:
                         running = false;
-                        System.out.println("\n✅ Thank you for using the Inventory System!");
+                        System.out.println("\nThank you for using the Inventory System!");
                         break;
                     default:
-                        System.out.println("❌ Invalid choice! Please try again.\n");
+                        System.out.println("Invalid choice! Please try again.\n");
                 }
             }
             
         } catch (Exception e) {
-            System.err.println("❌ Error occurred: " + e.getMessage());
+            System.err.println(" Error occurred: " + e.getMessage());
             e.printStackTrace();
         } finally {
             if (factory != null) {
@@ -84,7 +84,7 @@ public class ProductApp {
         cfg.addAnnotatedClass(Product.class);
         factory = cfg.buildSessionFactory();
         
-        System.out.println("✅ SessionFactory created successfully!\n");
+        System.out.println(" SessionFactory created successfully!\n");
     }
     
     // Display Main Menu
@@ -121,10 +121,10 @@ public class ProductApp {
             session.save(product);
             
             tx.commit();
-            System.out.println("✅ Product inserted successfully with ID: " + product.getId());
+            System.out.println(" Product inserted successfully with ID: " + product.getId());
         } catch (Exception e) {
             if (tx != null) tx.rollback();
-            System.err.println("❌ Error inserting product: " + e.getMessage());
+            System.err.println(" Error inserting product: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -154,10 +154,10 @@ public class ProductApp {
             }
             
             tx.commit();
-            System.out.println("✅ " + count + " products inserted successfully!");
+            System.out.println( count + " products inserted successfully!");
         } catch (Exception e) {
             if (tx != null) tx.rollback();
-            System.err.println("❌ Error inserting products: " + e.getMessage());
+            System.err.println("Error inserting products: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -175,15 +175,15 @@ public class ProductApp {
             Product product = session.get(Product.class, id);
             
             if (product != null) {
-                System.out.println("\n✅ Product Found:");
+                System.out.println("\n Product Found:");
                 System.out.println("─".repeat(50));
                 System.out.println(product);
                 System.out.println("─".repeat(50));
             } else {
-                System.out.println("❌ Product with ID " + id + " not found!");
+                System.out.println(" Product with ID " + id + " not found!");
             }
         } catch (Exception e) {
-            System.err.println("❌ Error retrieving product: " + e.getMessage());
+            System.err.println(" Error retrieving product: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -199,7 +199,7 @@ public class ProductApp {
             List<Product> products = session.createQuery("FROM Product", Product.class).list();
             
             if (products.isEmpty()) {
-                System.out.println("❌ No products found in the database!");
+                System.out.println(" No products found in the database!");
             } else {
                 System.out.println("Total Products: " + products.size());
                 System.out.println("─".repeat(80));
@@ -215,7 +215,7 @@ public class ProductApp {
                 System.out.println("─".repeat(80));
             }
         } catch (Exception e) {
-            System.err.println("❌ Error fetching products: " + e.getMessage());
+            System.err.println(" Error fetching products: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -236,7 +236,7 @@ public class ProductApp {
             Product product = session.get(Product.class, id);
             
             if (product == null) {
-                System.out.println("❌ Product with ID " + id + " not found!");
+                System.out.println(" Product with ID " + id + " not found!");
                 return;
             }
             
@@ -276,19 +276,19 @@ public class ProductApp {
                     product.setQuantity(getIntInput("Enter new quantity: "));
                     break;
                 default:
-                    System.out.println("❌ Invalid choice!");
+                    System.out.println(" Invalid choice!");
                     return;
             }
             
             session.update(product);
             tx.commit();
             
-            System.out.println("\n✅ Product updated successfully!");
+            System.out.println("\n Product updated successfully!");
             System.out.println("Updated Product: " + product);
             
         } catch (Exception e) {
             if (tx != null) tx.rollback();
-            System.err.println("❌ Error updating product: " + e.getMessage());
+            System.err.println(" Error updating product: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -309,7 +309,7 @@ public class ProductApp {
             Product product = session.get(Product.class, id);
             
             if (product == null) {
-                System.out.println("❌ Product with ID " + id + " not found!");
+                System.out.println(" Product with ID " + id + " not found!");
                 return;
             }
             
@@ -321,14 +321,14 @@ public class ProductApp {
             if (confirm.equalsIgnoreCase("yes") || confirm.equalsIgnoreCase("y")) {
                 session.delete(product);
                 tx.commit();
-                System.out.println("✅ Product deleted successfully!");
+                System.out.println(" Product deleted successfully!");
             } else {
-                System.out.println("❌ Deletion cancelled!");
+                System.out.println("Deletion cancelled!");
             }
             
         } catch (Exception e) {
             if (tx != null) tx.rollback();
-            System.err.println("❌ Error deleting product: " + e.getMessage());
+            System.err.println(" Error deleting product: " + e.getMessage());
         } finally {
             session.close();
         }
@@ -347,7 +347,7 @@ public class ProductApp {
                 int value = Integer.parseInt(scanner.nextLine().trim());
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a valid number.");
+                System.out.println(" Invalid input! Please enter a valid number.");
             }
         }
     }
@@ -359,7 +359,7 @@ public class ProductApp {
                 long value = Long.parseLong(scanner.nextLine().trim());
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a valid number.");
+                System.out.println(" Invalid input! Please enter a valid number.");
             }
         }
     }
@@ -370,12 +370,12 @@ public class ProductApp {
                 System.out.print(prompt);
                 double value = Double.parseDouble(scanner.nextLine().trim());
                 if (value < 0) {
-                    System.out.println("❌ Price cannot be negative!");
+                    System.out.println(" Price cannot be negative!");
                     continue;
                 }
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a valid number.");
+                System.out.println(" Invalid input! Please enter a valid number.");
             }
         }
     }
