@@ -1,10 +1,9 @@
-package com.example;
+package com.klu;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class Certification {
-
     private int id = 101;
     private String name = "AWS Certified Developer";
     private String dateOfCompletion = "2024-12-15";
@@ -15,7 +14,6 @@ public class Certification {
 
     @Override
     public String toString() {
-        return "Certification [id=" + id + ", name=" + name + 
-               ", dateOfCompletion=" + dateOfCompletion + "]";
+        return "Certification [id=" + id + ", name=" + name + ", dateOfCompletion=" + dateOfCompletion + "]";
     }
 }

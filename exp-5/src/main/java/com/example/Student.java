@@ -1,11 +1,10 @@
-package com.example;
+package com.klu;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Student {
-
     private int id = 1;
     private String name = "Sai";
     private String gender = "Male";
@@ -20,7 +19,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [id=" + id + ", name=" + name + 
-               ", gender=" + gender + ", certification=" + certification + "]";
+        return "Student [id=" + id + ", name=" + name + ", gender=" + gender + ", certification=" + certification + "]";
     }
 }
