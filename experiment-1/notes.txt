@@ -1,0 +1,13 @@
+Experiment 1: Git Fundamentals
+================================
+Topics Covered:
+1. Git initialization
+2. Staging and commits
+3. Remote repositories
+4. Branching and merging
+5. Conflict resolution
+
+Bug Fix Applied:
+- Fixed formatting issues
+- Updated documentation
+- Corrected typos
